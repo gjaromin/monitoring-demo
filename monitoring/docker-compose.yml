@@ -1,0 +1,31 @@
+version: "3"
+services:
+  demo-service:
+    image: symphony/monitoring-demo
+    networks:
+    - mynet
+    ports:
+    - "8080:8080"
+  prometheus:
+    image: prom/prometheus
+    ports:
+    - "9090:9090"
+    networks:
+    - mynet
+    volumes:
+    - ./prometheus/conf/prometheus.yml:/etc/prometheus/prometheus.yml
+    depends_on:
+    - demo-service
+  grafana:
+    image: grafana/grafana
+    ports:
+    - "3000:3000"
+    networks:
+    - mynet
+    volumes:
+    - ./grafana/dashboards:/etc/grafana/provisioning/dashboards
+    - ./grafana/datasources:/etc/grafana/provisioning/datasources
+    depends_on:
+    - prometheus
+networks:
+  mynet:

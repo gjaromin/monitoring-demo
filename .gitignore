@@ -1,0 +1,25 @@
+## Dot files
+.*
+
+## Config
+lombok.config
+
+## Build folders
+bin/
+target/
+out/
+build/
+log/
+newrelic/
+
+# Intellij
+*.iml
+*.iws
+*.ipr
+*.ids
+*.orig
+
+# OS files
+Thumbs.db
+Desktop.ini
+.DS_Store
