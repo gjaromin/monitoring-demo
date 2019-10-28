@@ -23,3 +23,5 @@ newrelic/
 Thumbs.db
 Desktop.ini
 .DS_Store
+
+applications.logs
